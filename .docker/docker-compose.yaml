@@ -6,8 +6,7 @@ services:
       - 6379
   app:
     build:
-      context: .
-      target: development
+      context: ..
     links:
       - redis
     ports:
