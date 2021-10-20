@@ -11,10 +11,10 @@ services:
     links:
       - redis
     ports:
-      - 3000:3000
+      - 30002:30002
     environment:
       - REDIS_URL=redis://cache
       - NODE_ENV=development
-      - PORT=3000
+      - PORT=30002
     command:
       sh -c 'node server.js'
