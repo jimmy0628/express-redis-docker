@@ -4,7 +4,9 @@ redis:
   expose:
     - 6379
 app:
-  image: tilt.dev/express-redis-app
+  build:
+    context: .
+    target: development
   links:
     - redis
   ports:
