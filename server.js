@@ -18,7 +18,7 @@ app.get('/:key', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  return res.send('Hello Tencent CC');
+  return res.send('Hello Tencent CC Migo');
 });
 
 const PORT = process.env.PORT || 30002;

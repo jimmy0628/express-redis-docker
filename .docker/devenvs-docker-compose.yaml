@@ -1,0 +1,37 @@
+services:
+  app:
+    command:
+    - sh
+    - -c
+    - node server.js
+    container_name: application
+    environment:
+      NODE_ENV: development
+      PORT: "30002"
+      REDIS_URL: redis://cache
+    image: tilt.dev/express-redis-app
+    labels:
+      com.docker.devenvironments.compose: "true"
+      com.docker.devenvironments.name: express-redis-docker-jolly_goldstine
+    links:
+    - redis
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 30002
+      published: 30002
+      protocol: tcp
+  redis:
+    container_name: cache
+    expose:
+    - "6379"
+    image: redis
+    labels:
+      com.docker.devenvironments.compose: "true"
+      com.docker.devenvironments.name: express-redis-docker-jolly_goldstine
+    networks:
+      default: null
+networks:
+  default:
+    name: express-redis-docker-jolly_goldstine_default
